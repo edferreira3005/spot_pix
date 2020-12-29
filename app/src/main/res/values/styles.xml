@@ -1,0 +1,111 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- TODO background da applicação toda -->
+        <item name="android:dialogTheme">@style/AppThemeApp.Dialog</item>
+        <item name="colorControlNormal">@color/projeto_2</item>
+        <item name="colorControlActivated">@color/projeto</item>
+        <item name="colorControlHighlight">@color/projeto_2</item>
+        <item name="colorSwitchThumbNormal">@color/projeto_2</item>
+
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeTelaPrincipal" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- TODO background da applicação toda -->
+        <item name="android:dialogTheme">@style/AppThemeApp.Dialog</item>
+        <item name="colorControlNormal">@color/projeto_2</item>
+        <item name="colorControlActivated">@color/projeto</item>
+        <item name="colorControlHighlight">@color/projeto_2</item>
+        <item name="colorSwitchThumbNormal">@color/projeto_2</item>
+        <item name="colorButtonNormal">@color/projeto_2</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/vermelho_2</item>
+
+
+    </style>
+
+
+
+
+    <style name="EditStyle_1" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/preto</item>
+        <item name="colorControlNormal">@color/projeto_2</item>
+        <item name="colorPrimaryDark">@color/projeto_2</item>
+        <item name="colorSwitchThumbNormal">@color/projeto_2</item>
+    </style>
+
+    <style name="EditStyle" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/projeto</item>
+        <item name="colorControlNormal">@color/branco</item>
+        <item name="colorPrimaryDark">@color/branco</item>
+        <item name="colorSwitchThumbNormal">@color/branco</item>
+    </style>
+
+    <style name="AppAlertTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/toolbar</item>
+        <item name="colorAccent">@color/toolbar</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeApp.Dialog" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowSoftInputMode">adjustResize|adjustPan</item>
+    </style>
+
+
+
+    <style name="ShadowTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/verde</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/projeto</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">@color/branco </item>
+    </style>
+
+    <style name="mProgress" parent="Widget.AppCompat.ProgressBar.Horizontal">
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ActionBar.nameText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="spinnerTheme">
+        <item name="android:textColor">@color/branco</item>
+    </style>
+
+</resources>

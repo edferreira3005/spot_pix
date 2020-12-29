@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SpotPix</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="share">Share</string>
+    <string name="db_name" translatable="false">banco_nestle_dpa.db</string>
+    <!-- ERROS -->
+    <string name="erro_dados">Erro ao obter os dados.</string>
+    <string name="erro_400">Erro 400: Falha na comunicação com servidor.</string>
+    <string name="erro_401">Erro 401: Falha de autenticação.</string>
+    <string name="erro_403">Erro 403: Acesso não autorizado.</string>
+    <string name="erro_404">Erro 404: Arquivo de acesso não encontrado.</string>
+    <string name="erro_500">Erro 500: Servidor não responde.</string>
+    <string name="erro_502">Erro 502: Falha no Gateway.</string>
+    <string name="erro_503">Erro 503: Serviço não disponível.</string>
+    <string name="erro_504">Erro 504: Servidor sem resposta.</string>
+    <string name="erro_default">Erro _CODE: Erro desconhecido.</string>
+    <string name="erro_foto">Foto não encontrada.</string>
+    <string name="erro_lista">Lista vazia.</string>
+    <string name="erro_conexao">Verifique sua conexão ou tente novamente!</string>
+    <string name="erro_servidor_expirado">Pedido ao servidor expirado. Verifique com o administrador!</string>
+    <string name="erro_arquivo_nao_encontrado">Arquivo não encontrado</string>
+    <string name="erro_erro_banco">Ocorreu um erro no banco interno SQLite.</string>
+    <string name="erro_campo_formatacao">Verifique o campo digitado, e insira a formatação solicitada!</string>
+    <string name="erro_nao_identificado">Ocorreu um erro não identificado</string>
+    <string name="erro_data_pesquisa">Dados de pesquisa não localizado.</string>
+    <string name="erro_data_pesquisa_pendente">Dados de pesquisa não localizado.</string>
+</resources>

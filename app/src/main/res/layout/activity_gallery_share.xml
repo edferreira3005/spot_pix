@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="shareViewModel"
+            type="com.example.spotpix.viewmodel.ShareImageViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/lnlGallery"
+            android:background="@drawable/background_foto_shelfpix"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.GalleryShareActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{safeUnbox(shareViewModel.viewGallery)}">
+
+            <Button
+                android:id="@+id/btnCalculateAll"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="@{()->shareViewModel.onCalculateAllClicked()}"
+                android:background="@drawable/ic_action_calculator"
+                android:backgroundTint="?colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctrGallery"
+            android:visibility="@{safeUnbox(shareViewModel.viewPicture)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.example.spotpix.customviews.ShareImageView
+                android:id="@+id/shareImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_foto_shelfpix"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+
+                <Button
+                    android:id="@+id/btnUndoDraw"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_action_eraser"
+                    android:backgroundTint="@color/branco"
+                    android:onClick="@{()->shareViewModel.onUndoClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@id/btnInvaders"
+                        app:layout_constraintTop_toTopOf="@id/btnInvaders"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <Button
+                    android:id="@+id/btnSaveShare"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_save"
+                    android:onClick="@{()->shareViewModel.onSaveShareClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnInvaders"
+                    app:layout_constraintEnd_toStartOf="@+id/btnUndoDraw"
+                    app:layout_constraintStart_toEndOf="@+id/txtInvaders"
+                    app:layout_constraintTop_toTopOf="@+id/btnInvaders" />
+
+                <Button
+                    android:id="@+id/btnClient"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_action_share"
+                    android:backgroundTint="@color/projeto_3"
+                    android:onClick="@{()->shareViewModel.onClientClicked()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/txtClient"
+                    app:layout_constraintStart_toStartOf="@+id/txtClient"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtClient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Cliente"
+                    android:textColor="@color/projeto_3"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnClient" />
+
+                <Button
+                    android:id="@+id/btnCompetitor"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_action_share"
+                    android:backgroundTint="@color/amarelo"
+                    android:onClick="@{()->shareViewModel.onCompetitorClicked()}"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCompetitor"
+                    app:layout_constraintStart_toStartOf="@+id/txtCompetitor"
+                    app:layout_constraintTop_toTopOf="@+id/btnClient" />
+
+                <TextView
+                    android:id="@+id/txtCompetitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Concorrente"
+                    android:textColor="@color/amarelo"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/txtClient"
+                    app:layout_constraintTop_toTopOf="@+id/txtClient" />
+
+                <Button
+                    android:id="@+id/btnEmpty"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_action_share"
+                    android:backgroundTint="@color/cinza"
+                    android:onClick="@{()->shareViewModel.onEmptyClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCompetitor"
+                    app:layout_constraintEnd_toEndOf="@+id/txtEmpty"
+                    app:layout_constraintStart_toStartOf="@+id/txtEmpty"
+                    app:layout_constraintTop_toTopOf="@+id/btnCompetitor"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/txtEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Vazio"
+                    android:textColor="@color/cinza"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/txtCompetitor"
+                    app:layout_constraintTop_toTopOf="@+id/txtCompetitor" />
+
+                <Button
+                    android:id="@+id/btnInvaders"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                    android:background="@drawable/ic_action_share"
+                    android:backgroundTint="@color/branco"
+                    android:onClick="@{()->shareViewModel.onInvadersClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnEmpty"
+                    app:layout_constraintEnd_toEndOf="@+id/txtInvaders"
+                    app:layout_constraintStart_toStartOf="@+id/txtInvaders"
+                    app:layout_constraintTop_toTopOf="@+id/btnEmpty"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/txtInvaders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Invasores"
+                    android:textColor="@color/branco"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/txtEmpty"
+                    app:layout_constraintTop_toTopOf="@+id/txtEmpty" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>
