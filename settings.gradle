@@ -1,3 +1,1 @@
-include ':SpotPix'
 include ':app'
-rootProject.name = "SpotPix"
