@@ -27,7 +27,10 @@ import android.webkit.MimeTypeMap
 import android.widget.*
 import br.com.spotpromo.nestle_dpa_novo.regras.model.*
 import br.com.spotpromo.nestle_dpa_novo.util.SupportImagem
+import com.amazonaws.services.s3.model.ObjectMetadata
 import com.example.spotpix.R
+import com.example.spotpix.dao.MetadadoFotoDaoHelper
+import com.example.spotpix.model.MetadadoFoto
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import com.ortiz.touchview.TouchImageView
@@ -173,6 +176,52 @@ object Util {
     fun isGooglePhotosUri(uri: Uri): Boolean {
         return "com.google.android.apps.photos.content" == uri
             .authority
+    }
+
+    fun createPictureMetadata(
+        nomeFoto: String,
+        codPesquisa: Int,
+        context: Context
+    ): ObjectMetadata {
+        val metadado = ObjectMetadata()
+        try {
+            val metadadoFotoDaoHelper = MetadadoFotoDaoHelper(SqliteDataBaseHelper.openDB(context))
+            val metadadosFoto = metadadoFotoDaoHelper
+                .selectInfoMetadado(
+                    nomeFoto,
+                    codPesquisa,
+                    context.resources.getInteger(R.integer.cod_campanha_shelfpix),
+                    retornaDataFotoShelfPix(nomeFoto),
+                    retonarNomeFotoSemExtensao(nomeFoto)
+                )
+
+            if (metadadosFoto != null) {
+                val gsonMetadado = GsonBuilder()
+                    .excludeFieldsWithoutExposeAnnotation()
+                    .serializeNulls()
+                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                    .create()
+
+                val gsonStringMetadado = URLEncoder.encode(
+                    gsonMetadado.toJson(metadadosFoto, MetadadoFoto::class.java),
+                    StandardCharsets.UTF_8.name()
+                )
+
+                val gsonStringMarkerShare = URLEncoder.encode(
+                    gsonMetadado.toJson(metadadosFoto.markerShareList),
+                    StandardCharsets.UTF_8.name()
+                )
+
+                metadado.contentType = "application/json; charset=utf-8"
+                metadado.addUserMetadata("picture", gsonStringMetadado)
+                metadado.addUserMetadata("markerShareList", gsonStringMarkerShare)
+                Log.e("METADADO", gsonStringMetadado)
+                Log.e("SHARE", gsonStringMarkerShare)
+            }
+        } catch (e: Exception) {
+            Log.e("erro metadado shelfpix", "createPictureMetadata: fail: ${e.cause}")
+        }
+        return metadado
     }
 
 }
